@@ -113,7 +113,7 @@ const App = () => {
 <br />
       <table className="table md-4 table-bordered table-striped table-hover">
         <thead>
-          <tr>
+          <tr className="table-dark">
             <th>Name</th>
             <th>Age</th>
             <th>Department</th>
