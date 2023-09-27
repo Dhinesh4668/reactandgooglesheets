@@ -1,4 +1,4 @@
-import { useState } from "react"
+import { useState , useEffect} from "react"
 import axios from 'axios'
 const App = () => {
 
@@ -10,6 +10,24 @@ const App = () => {
   const [email, setEmail] = useState('')
   const [acknowledgment, setAcknowledgment] = useState('');
   const [showWarning, setShowWarning] = useState(false);
+
+  const [tableData, setTableData] = useState([]);
+
+  // Function to fetch data from the API
+  const fetchData = () => {
+    axios.get('https://sheet.best/api/sheets/a12472ae-5d1e-4117-82f9-244940636c40')
+      .then((response) => {
+        setTableData(response.data);
+      })
+      .catch((error) => {
+        console.error("Error fetching data: ", error);
+
+      });
+  };
+
+  useEffect(() => {
+    fetchData();
+  }, []);
 
 
   // submiting event  
@@ -92,8 +110,35 @@ const App = () => {
           {acknowledgment}
         </div>
       )}
+<br />
+      <table className="table md-4 table-bordered table-striped table-hover">
+        <thead>
+          <tr>
+            <th>Name</th>
+            <th>Age</th>
+            <th>Department</th>
+            <th>Year</th>
+            <th>Email</th>
+          </tr>
+        </thead>
+        <tbody>
+          {tableData.map((dataItem, index) => (
+            <tr key={index}>
+              <td>{dataItem.Name}</td>
+              <td>{dataItem.Age}</td>
+              <td>{dataItem.Department}</td>
+              <td>{dataItem.Year}</td>
+              <td>{dataItem.Email}</td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
+
+
     </div>
   )
 }
 
 export default App
+
+
