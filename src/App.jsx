@@ -31,7 +31,7 @@ const App = () => {
       Year: year,
       Email: email
     }
-    axios.post('https://sheet.best/api/sheets/a12472ae-5d1e-4117-82f9-244940636c40', Data).then((responce) => {
+    axios.post('https://sheet.best/api/sheets/a12472ae-5d1e-4117-82f9-244940636c40', Data).then(() => {
       // console.log(responce);
       setName('')
       setAge('')
