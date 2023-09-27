@@ -66,7 +66,7 @@ const App = () => {
         fontVariant: 'simplified',
         display: 'flex',
         justifyContent: 'center'
-      }}>Google from data using the REATC and REST api 📄</p>
+      }}>Google from data using the REACT and REST api 📄</p>
       <br />
 
 
