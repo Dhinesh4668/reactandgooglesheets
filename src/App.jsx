@@ -151,7 +151,7 @@ const App = () => {
               <td>{dataItem.Regno}</td>
               <td>{dataItem.CompanyName}</td>
               <td>{dataItem.Email}</td>
-              <td>{dataItem.status}</td>
+              <td>{dataItem.Status}</td>
             </tr>
           ))}
         </tbody>
