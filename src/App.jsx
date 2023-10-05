@@ -4,13 +4,15 @@ const App = () => {
 
   // from data
   const [name, setName] = useState('')
-  const [age, setAge] = useState('')
+  // const [age, setAge] = useState('')
   const [dep, setDep] = useState('')
-  const [year, setYear] = useState('')
+  // const [year, setYear] = useState('')
+  const [cname, setCname]=useState('')
   const [email, setEmail] = useState('')
+  const [reg,setReg] =useState('')
   const [acknowledgment, setAcknowledgment] = useState('');
   const [showWarning, setShowWarning] = useState(false);
-
+  const [status,setStatus] = useState('')
   const [tableData, setTableData] = useState([]);
 
   // Function to fetch data from the API
@@ -44,18 +46,24 @@ const App = () => {
 
     const Data = {
       Name: name,
-      Age: age,
+      // Age: age,
       Department: dep,
-      Year: year,
-      Email: email
+      Regno:reg,
+      CompanyName:cname,
+      // Year: year,
+      Email: email,
+      Status:status,
     }
     axios.post('https://sheet.best/api/sheets/a12472ae-5d1e-4117-82f9-244940636c40', Data).then(() => {
       // console.log(responce);
       setName('')
-      setAge('')
+      // setAge('')
       setDep('')
+      setReg('')
+      setCname('')
       setEmail('')
-      setYear('')
+      setStatus('')
+      // setYear('')
     })
   };
 
@@ -66,7 +74,7 @@ const App = () => {
         fontVariant: 'simplified',
         display: 'flex',
         justifyContent: 'center'
-      }}>Google from data using the REACT and REST api 📄</p>
+      }}>MORGAN STANLEY CAMPUS APPLICATION 2023 IT DEP DEATILS 📄</p>
       <br />
 
 
@@ -75,21 +83,34 @@ const App = () => {
         <input type="text" className="form-control" placeholder="sam"
           onChange={(e) => setName(e.target.value)} value={name}
         />
-        <label>Age</label> <br />
+        {/* <label>Age</label> <br />
         <input type="number" className="form-control" placeholder="20"
           onChange={(e) => setAge(e.target.value)} value={age}
-        />
+        /> */}
         <label>Department</label> <br />
         <input type="text" placeholder="Infromation Technology " className="form-control"
           onChange={(e) => setDep(e.target.value)} value={dep}
         />
-        <label>Year</label> <br />
+        <label>Reg No</label> <br />
+        <input type="number" placeholder="611720205004 " className="form-control"
+          onChange={(e) => setReg(e.target.value)} value={reg}
+        />
+        {/* <label>Year</label> <br />
         <input type="number" className="form-control" placeholder="4"
           onChange={(e) => setYear(e.target.value)} value={year}
         />
+        */}
         <label>Email</label><br />
         <input type="email" className="form-control" placeholder="test@mail.com"
           onChange={(e) => setEmail(e.target.value)} value={email}
+        /> <br />
+        <label>company name</label><br />
+        <input type="text" className="form-control" placeholder="ex:dhinesh softwhare limited."
+          onChange={(e) => setCname(e.target.value)} value={cname}
+        /> <br />
+        <label>Status</label><br />
+        <input type="text" className="form-control" placeholder="completed / notcompleted"
+          onChange={(e) => setStatus(e.target.value)} value={status}
         /> <br />
         {/* submit button */}
         <div style={{
@@ -115,20 +136,22 @@ const App = () => {
         <thead>
           <tr className="table-dark">
             <th>Name</th>
-            <th>Age</th>
+            <th>RegNo</th>
             <th>Department</th>
-            <th>Year</th>
             <th>Email</th>
+            <th>CompanyName</th>
+            <th>status</th>
           </tr>
         </thead>
         <tbody>
           {tableData.map((dataItem, index) => (
             <tr key={index}>
               <td>{dataItem.Name}</td>
-              <td>{dataItem.Age}</td>
               <td>{dataItem.Department}</td>
-              <td>{dataItem.Year}</td>
+              <td>{dataItem.Regno}</td>
+              <td>{dataItem.CompanyName}</td>
               <td>{dataItem.Email}</td>
+              <td>{dataItem.status}</td>
             </tr>
           ))}
         </tbody>
