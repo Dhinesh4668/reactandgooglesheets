@@ -80,7 +80,7 @@ const App = () => {
 
       <form autoComplete="on" className="form-group" onSubmit={handleSubmit}>
         <label>Name</label> <br />
-        <input type="text" className="form-control" placeholder="sam"
+        <input type="text" className="form-control" placeholder="dhinesh"
           onChange={(e) => setName(e.target.value)} value={name}
         />
         {/* <label>Age</label> <br />
